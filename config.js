@@ -6,7 +6,7 @@ window.KONTRA_CONFIG = {
 
   // После создания внешнего API вставь сюда публичный GET-адрес.
   // Ожидаемый JSON описан в status.example.json и README_RU.md.
-  statusEndpoint: "",
+  statusEndpoint: "https://kontra-status-api.moscow-kuro-street.workers.dev/status",
   statusRefreshMs: 15000,
   staleAfterMs: 60000,
 
