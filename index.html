@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#070908">
+  <meta name="description" content="KONTRA // ZOMBIE MOD — многопользовательский FPS с заражением, классами, развитием и серверными событиями.">
+  <meta property="og:title" content="KONTRA // ZOMBIE MOD">
+  <meta property="og:description" content="Выживи среди заражённых. Собери команду. Удержи рубеж.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/logo.svg">
+  <title>KONTRA // ZOMBIE MOD</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <div class="boot-screen" aria-hidden="true">
+    <div class="boot-screen__mark">K//Z</div>
+    <div class="boot-screen__line"><span></span></div>
+    <div class="boot-screen__text">INITIALIZING OUTBREAK NETWORK</div>
+  </div>
+
+  <div class="site-noise" aria-hidden="true"></div>
+  <div class="site-scanlines" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="particles" id="particles" aria-hidden="true"></div>
+
+  <header class="topbar" id="top">
+    <a class="brand" href="#top" aria-label="KONTRA — на главную">
+      <img src="assets/logo.svg" alt="" width="48" height="48">
+      <span class="brand__copy">
+        <strong>KONTRA</strong>
+        <small>ZOMBIE MOD</small>
+      </span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Основная навигация">
+      <a href="#server">Сервер</a>
+      <a href="#modes">Режимы</a>
+      <a href="#features">Система</a>
+      <a href="#connect">Подключение</a>
+    </nav>
+
+    <div class="topbar__status" id="headerStatus">
+      <i class="status-dot"></i>
+      <span>ПРОВЕРКА СЕРВЕРА</span>
+    </div>
+
+    <button class="menu-button" id="menuButton" type="button" aria-label="Открыть меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="#server">Сервер</a>
+    <a href="#modes">Режимы</a>
+    <a href="#features">Система</a>
+    <a href="#connect">Подключение</a>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="hero__signal hero__signal--one" aria-hidden="true"></div>
+      <div class="hero__signal hero__signal--two" aria-hidden="true"></div>
+
+      <div class="hero__content reveal">
+        <div class="eyebrow">
+          <span class="eyebrow__pulse"></span>
+          OUTBREAK PROTOCOL // ACTIVE
+        </div>
+
+        <h1>
+          <span>KONTRA</span>
+          <em>ZOMBIE MOD</em>
+        </h1>
+
+        <p class="hero__lead">
+          Люди держат линию. Заражённые ломают её.
+          Выбери класс, развивай бойца и переживи следующую волну.
+        </p>
+
+        <div class="hero__actions">
+          <a class="button button--primary" href="#connect">
+            <span>ВОЙТИ В БОЙ</span>
+            <b>↗</b>
+          </a>
+          <button class="button button--ghost js-copy-ip" type="button">
+            <span>СКОПИРОВАТЬ IP</span>
+            <b>⧉</b>
+          </button>
+        </div>
+
+        <div class="hero__micro">
+          <span><i></i> КЛАССОВАЯ СИСТЕМА</span>
+          <span><i></i> ПРОГРЕССИЯ</span>
+          <span><i></i> ЖИВЫЕ СОБЫТИЯ</span>
+        </div>
+      </div>
+
+      <div class="hero__visual reveal reveal--delay">
+        <div class="bio-core" aria-hidden="true">
+          <div class="bio-core__ring bio-core__ring--one"></div>
+          <div class="bio-core__ring bio-core__ring--two"></div>
+          <div class="bio-core__ring bio-core__ring--three"></div>
+          <div class="bio-core__symbol">☣</div>
+          <div class="bio-core__label">BIOHAZARD<br>LEVEL 05</div>
+        </div>
+
+        <div class="hero-card hero-card--online">
+          <small>LIVE PLAYERS</small>
+          <strong><span data-online>—</span><b>/</b><span data-max>16</span></strong>
+          <span data-status-label>ОЖИДАНИЕ API</span>
+        </div>
+
+        <div class="hero-card hero-card--map">
+          <small>CURRENT SECTOR</small>
+          <strong data-map>НЕИЗВЕСТНО</strong>
+          <span data-mode>ZOMBIE MOD</span>
+        </div>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <span>SCROLL TO SURVIVE</span>
+        <i></i>
+      </div>
+    </section>
+
+    <section class="server-section section" id="server">
+      <div class="section-heading reveal">
+        <div>
+          <span class="kicker">01 // LIVE NETWORK</span>
+          <h2>Состояние сервера</h2>
+        </div>
+        <p>Показатели обновляются автоматически после подключения внешнего API.</p>
+      </div>
+
+      <article class="server-console reveal">
+        <div class="server-console__top">
+          <div class="server-console__identity">
+            <span class="server-console__icon">K</span>
+            <div>
+              <small>SERVER NODE</small>
+              <strong data-server-name>KONTRA // ZOMBIE</strong>
+            </div>
+          </div>
+
+          <div class="server-console__state">
+            <i class="status-dot"></i>
+            <span data-status-label>ОЖИДАНИЕ API</span>
+          </div>
+        </div>
+
+        <div class="server-console__body">
+          <div class="online-meter">
+            <div class="online-meter__value">
+              <strong data-online>—</strong>
+              <span>/ <b data-max>16</b></span>
+            </div>
+            <small>ИГРОКОВ В СЕТИ</small>
+            <div class="meter-track">
+              <span id="onlineMeter"></span>
+            </div>
+          </div>
+
+          <div class="server-fields">
+            <div class="server-field">
+              <small>АДРЕС</small>
+              <strong data-server-address>31.25.244.236:7433</strong>
+            </div>
+            <div class="server-field">
+              <small>КАРТА</small>
+              <strong data-map>НЕИЗВЕСТНО</strong>
+            </div>
+            <div class="server-field">
+              <small>РЕЖИМ</small>
+              <strong data-mode>ZOMBIE MOD</strong>
+            </div>
+            <div class="server-field">
+              <small>ОБНОВЛЕНО</small>
+              <strong data-updated>НЕТ ДАННЫХ</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="server-console__bottom">
+          <div class="terminal-line">
+            <span>&gt;</span>
+            <p id="terminalText">STATUS_ENDPOINT NOT CONFIGURED_</p>
+          </div>
+          <button class="console-copy js-copy-ip" type="button">COPY SERVER IP</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="manifesto section">
+      <div class="manifesto__number reveal">02</div>
+      <div class="manifesto__content reveal">
+        <span class="kicker">OUTBREAK BRIEFING</span>
+        <h2>
+          Здесь недостаточно<br>
+          <em>просто стрелять.</em>
+        </h2>
+        <p>
+          Каждый раунд меняет правила. Люди укрепляют позиции, выбирают специализацию
+          и экономят ресурсы. Заражённые давят числом, скоростью и уникальными способностями.
+        </p>
+      </div>
+      <div class="manifesto__stats reveal">
+        <div><strong>16</strong><span>СЛОТОВ</span></div>
+        <div><strong>11+</strong><span>КЛАССОВ</span></div>
+        <div><strong>24/7</strong><span>БОЕВОЙ ЦИКЛ</span></div>
+      </div>
+    </section>
+
+    <section class="modes-section section" id="modes">
+      <div class="section-heading reveal">
+        <div>
+          <span class="kicker">03 // COMBAT PROTOCOLS</span>
+          <h2>Режимы заражения</h2>
+        </div>
+        <p>Разные правила, одна задача: не стать частью роя.</p>
+      </div>
+
+      <div class="mode-grid">
+        <article class="mode-card mode-card--feature reveal">
+          <span class="mode-card__index">01</span>
+          <div class="mode-card__hazard">☣</div>
+          <div class="mode-card__content">
+            <small>PRIMARY MODE</small>
+            <h3>Zombie Infection</h3>
+            <p>Один заражённый начинает охоту. Каждая потеря усиливает сторону зомби.</p>
+            <span class="tag">ASYMMETRIC PVP</span>
+          </div>
+        </article>
+
+        <article class="mode-card reveal">
+          <span class="mode-card__index">02</span>
+          <small>DEFENCE</small>
+          <h3>Zombie Survival</h3>
+          <p>Удерживай рубеж, собирай припасы и переживай волны возрастающей сложности.</p>
+          <span class="tag">WAVE MODE</span>
+        </article>
+
+        <article class="mode-card reveal">
+          <span class="mode-card__index">03</span>
+          <small>ESCAPE</small>
+          <h3>Zombie Escape</h3>
+          <p>Двигайся вместе с командой, активируй этапы карты и не отставай от эвакуации.</p>
+          <span class="tag">TEAM OBJECTIVE</span>
+        </article>
+
+        <article class="mode-card reveal">
+          <span class="mode-card__index">04</span>
+          <small>TRAINING</small>
+          <h3>Deathmatch / Surf</h3>
+          <p>Оттачивай стрельбу, реакцию и движение между основными заражёнными событиями.</p>
+          <span class="tag">SKILL MODE</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="features-section section" id="features">
+      <div class="features-section__intro reveal">
+        <span class="kicker">04 // SURVIVAL SYSTEM</span>
+        <h2>Система, которая помнит бойца</h2>
+        <p>
+          Прогресс сохраняется между сессиями. Открывай классы, собирай жетоны,
+          участвуй в событиях и формируй собственный стиль выживания.
+        </p>
+      </div>
+
+      <div class="feature-list">
+        <article class="feature-row reveal">
+          <span>01</span>
+          <div>
+            <h3>Классы людей и заражённых</h3>
+            <p>Телепортер, снабженец, турельщик, артиллерист, паук и другие роли с отдельной механикой.</p>
+          </div>
+          <b>CLASS CORE</b>
+        </article>
+
+        <article class="feature-row reveal">
+          <span>02</span>
+          <div>
+            <h3>Уровни, жетоны и награды</h3>
+            <p>Постоянный профиль, статистика, ежедневные выплаты и предметы из игровых событий.</p>
+          </div>
+          <b>PLAYER DATA</b>
+        </article>
+
+        <article class="feature-row reveal">
+          <span>03</span>
+          <div>
+            <h3>Живые карты и серверные события</h3>
+            <p>Порталы, барьеры, турели, командные метки, музыка раундов и администраторские сценарии.</p>
+          </div>
+          <b>LIVE OPS</b>
+        </article>
+      </div>
+    </section>
+
+    <section class="connect-section section" id="connect">
+      <div class="connect-panel reveal">
+        <div class="connect-panel__signal" aria-hidden="true"></div>
+        <div class="connect-panel__copy">
+          <span class="kicker">05 // JOIN THE SERVER</span>
+          <h2>Рубеж уже держат.<br><em>Тебя не хватает.</em></h2>
+          <p>Скопируй адрес сервера, запусти игру и подключись через список серверов.</p>
+        </div>
+
+        <div class="connect-panel__ip">
+          <small>SERVER ADDRESS</small>
+          <strong data-server-address>31.25.244.236:7433</strong>
+          <button class="button button--primary js-copy-ip" type="button">
+            <span>КОПИРОВАТЬ IP</span>
+            <b>⧉</b>
+          </button>
+        </div>
+      </div>
+
+      <div class="social-grid reveal">
+        <a class="social-card" data-link="telegram" href="#" target="_blank" rel="noopener">
+          <span>01</span>
+          <div><small>COMMUNITY</small><strong>TELEGRAM</strong></div>
+          <b>↗</b>
+        </a>
+        <a class="social-card" data-link="discord" href="#" target="_blank" rel="noopener">
+          <span>02</span>
+          <div><small>VOICE & NEWS</small><strong>DISCORD</strong></div>
+          <b>↗</b>
+        </a>
+        <a class="social-card" data-link="privileges" href="#" target="_blank" rel="noopener">
+          <span>03</span>
+          <div><small>SERVER SUPPORT</small><strong>ПРИВИЛЕГИИ</strong></div>
+          <b>↗</b>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand brand--footer" href="#top">
+      <img src="assets/logo.svg" alt="" width="40" height="40">
+      <span class="brand__copy"><strong>KONTRA</strong><small>ZOMBIE MOD</small></span>
+    </a>
+    <p>© <span id="year"></span> KONTRA FPS // OUTBREAK NETWORK</p>
+    <a href="#top">BACK TO TOP ↑</a>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

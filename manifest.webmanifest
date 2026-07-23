@@ -1,0 +1,15 @@
+{
+  "name": "KONTRA // ZOMBIE MOD",
+  "short_name": "KONTRA",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#060806",
+  "theme_color": "#070908",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
